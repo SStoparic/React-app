@@ -3,7 +3,7 @@ import Gym from "./Gym";
 function Favorites({gyms,kriterijum, izbaci}) {
     return (
     <div className="favorites">
-    <div className="row">
+    <div className="row" style = {{display: "flex", flexWrap: "wrap", justifyContent: "space-between"}}>
         {kriterijum===""
         ?
         gyms.map((gym)=> <div className="col-sm-3">
