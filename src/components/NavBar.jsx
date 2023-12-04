@@ -10,7 +10,7 @@ function NavBar({pretrazi}) {
 
                     <li className="nav__item">   <Link to='/'>Home </Link></li>
                     <li className="nav__item"> <Link to='/gyms'>Gyms</Link></li>
-                    <li className="nav__item"> <Link to='/favorite'>Favorite Gyms</Link></li>
+                    <li className="nav__item"> <Link to='/favorites'>Favorite Gyms</Link></li>
                     <li className="nav__item"> 
 
                        <input type="text" id="kriterijum" placeholder=" " 

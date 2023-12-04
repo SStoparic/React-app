@@ -61,7 +61,7 @@ function App() {
       favorite: 0
     },
     {
-      id:7,
+      id:6,
       naziv:"SPORTS ACADEMY KOCOVIC",
       slika: "https://kocovic.rs/galleries/blokovi/5.jpg",
       adresa:"Crnotravska 4",
@@ -70,7 +70,7 @@ function App() {
       favorite: 0
     },
     {
-      id:6,
+      id:7,
       naziv:"MUSCLE BEACH",
       slika: "https://www.muscle-beach.rs/assets/gallery/gallery-5.png",
       adresa:"Bulevar Milutina Milankovića 9đ",

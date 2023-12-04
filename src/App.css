@@ -249,7 +249,7 @@ h4{
     padding-left: 20px;
     padding-right: 20px;
   }
-  .gyms{
+  .gyms, .favorites{
     background-image: url("https://c4.wallpaperflare.com/wallpaper/321/216/37/black-background-metal-wallpaper-preview.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -266,4 +266,18 @@ h4{
     padding-left: 2px;
     padding-right: 2px;
     font-size: 22px;
+    padding: 10px;
+    margin-left: 15px;
+    font-size: 22px;
+    border: none;
+    color: #f1f1f1;
   }
+
+  .btnDodaj:hover {
+    background-color: #6e564c;
+    padding: 10px;
+    font-size: 22px;
+    border: none;
+    color: #f1f1f1;
+  }
+  
