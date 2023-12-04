@@ -1,5 +1,5 @@
 
-function Gym({gym, dodaj}) {
+function Gym({gym, dodaj, izbaci, mod}) {
 
 
     return (
@@ -9,7 +9,14 @@ function Gym({gym, dodaj}) {
           <h5 className="card-title">{gym.naziv}</h5>
           <p className="card-text">ADDRESS: {gym.adresa} <br /> MONTHLY PRICE: {gym.cena + "din"} <br /> 
             SIZE OF GYM: {gym.povrsina + "m2"}</p>
-            <button className="btnDodaj" onClick={()=>dodaj(gym.id)}> ADD TO FAVORITES </button>
+
+            {mod===1 ?
+            <button className="btnDodaj" 
+            onClick={()=>dodaj(gym.id)}> ADD TO FAVORITES </button>
+            :
+            <button className="btnIzbaci" onClick={()=>izbaci(gym.id)}>REMOVE FROM FAVORITES</button>
+
+          }
         </div>
       </div>
     );

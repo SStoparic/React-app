@@ -7,12 +7,14 @@ function Gyms({gyms, kriterijum, dodaj}) {
         {
         kriterijum===""
         ?
-        gyms.map((gym)=> <div className="col-sm-3"><Gym  dodaj={dodaj} key={gym.id} gym={gym}></Gym><br /></div>)
+        gyms.map((gym)=> <div className="col-sm-3">
+            <Gym  dodaj={dodaj} key={gym.id} gym={gym} mod={1}></Gym><br /></div>)
         :
         <>
         {gyms
         .filter((gym)=>gym.naziv.toLowerCase().includes(kriterijum.toLowerCase()))
-        .map((gym)=> <div className="col-sm-3"><Gym  dodaj={dodaj} key={gym.id} gym={gym}></Gym><br /></div>)}
+        .map((gym)=> <div className="col-sm-3">
+            <Gym  dodaj={dodaj} key={gym.id} gym={gym} mod={1}></Gym><br /></div>)}
 
         </>
         }

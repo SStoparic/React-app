@@ -1,17 +1,19 @@
 import Gym from "./Gym";
 
-function Favorites({gyms,kriterijum}) {
+function Favorites({gyms,kriterijum, izbaci}) {
     return (
     <div className="favorites">
     <div className="row">
         {kriterijum===""
         ?
-        gyms.map((gym)=> <div className="col-sm-3"><Gym  key={gym.id} gym={gym}></Gym><br /></div>)
+        gyms.map((gym)=> <div className="col-sm-3">
+            <Gym  key={gym.id} gym={gym} mod={2} izbaci={izbaci}></Gym><br /></div>)
         :
         <>
         {gyms
         .filter((gym)=>gym.naziv.toLowerCase().includes(kriterijum.toLowerCase()))
-        .map((gym)=> <div className="col-sm-3"><Gym  key={gym.id} gym={gym}></Gym><br /></div>)}
+        .map((gym)=> <div className="col-sm-3">
+            <Gym  key={gym.id} gym={gym} mod={2} izbaci={izbaci}></Gym><br /></div>)}
 
         </>
         }

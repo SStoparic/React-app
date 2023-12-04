@@ -86,6 +86,7 @@ function App() {
     setKriterijumPretrage(kriterijum);
   }
 
+  //funkcija za dodavanje u omiljenje
   function dodaj(id){
     for(var i=0;i<allGyms.length;i++){
       if(allGyms[i].id===id){
@@ -95,6 +96,19 @@ function App() {
     var niz = allGyms.filter((gym)=>gym.favorite===1);
     setFavoriteGyms(niz);
   }
+
+  //funkcija za izbacivanje iz omiljenih
+  function izbaci(id){
+    for(var i=0;i<allGyms.length;i++){
+      if(allGyms[i].id===id){
+        allGyms[i].favorite=0;
+      }
+    }
+    var niz = allGyms.filter((gym)=>gym.favorite===1);
+    setFavoriteGyms(niz);
+  }
+
+  
 
   return (
    <div>
@@ -107,7 +121,7 @@ function App() {
               gyms={allGyms} dodaj={dodaj}></Gyms>}></Route>
 
             <Route path="/favorites" element={<Favorites kriterijum={krterijumPretrage}  
-              gyms={favoriteGyms}></Favorites>}></Route>
+              gyms={favoriteGyms} izbaci={izbaci}></Favorites>}></Route>
 
           </Routes>
      </BrowserRouter>
