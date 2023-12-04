@@ -5,8 +5,11 @@ import Footer from './components/Footer';
 import Home from './components/Home';
 import Gyms from './components/Gyms';
 import { useState } from 'react';
+import Favorites from './components/Favorites';
 
 function App() {
+
+  const [favoriteGyms,setFavoriteGyms]=useState([]);
 
   const[allGyms] = useState([
 
@@ -17,6 +20,7 @@ function App() {
       adresa: "Rudnicka 1",
       cena: 3000,
       povrsina: 400,
+      favorite: 0
 
     },
     {
@@ -26,7 +30,7 @@ function App() {
       adresa:"Vojvode Stepe 207 ",
       cena: 4600,
       povrsina: 200,
-      
+      favorite: 0
 
     },
     {
@@ -36,7 +40,7 @@ function App() {
       adresa:"Nehurova 51",
       cena: 4000,
       povrsina: 500,
-
+      favorite: 0
     },
     {
       id:4,
@@ -45,7 +49,7 @@ function App() {
       adresa:"Omladinskih Brigada 65a",
       cena: 4000,
       povrsina: 450,
-
+      favorite: 0
     },
     {
       id:5,
@@ -54,7 +58,7 @@ function App() {
       adresa:"Vojvode Stepe 363",
       cena: 3500,
       povrsina: 300,
-
+      favorite: 0
     },
     {
       id:7,
@@ -63,7 +67,7 @@ function App() {
       adresa:"Crnotravska 4",
       cena: 5000,
       povrsina: 500,
-
+      favorite: 0
     },
     {
       id:6,
@@ -72,16 +76,39 @@ function App() {
       adresa:"Bulevar Milutina Milankovića 9đ",
       cena: 3400,
       povrsina: 350,
+      favorite: 0
     }
   ])
+
+  const [krterijumPretrage,setKriterijumPretrage]=useState("");
+
+  function pretrazi(kriterijum){
+    setKriterijumPretrage(kriterijum);
+  }
+
+  function dodaj(id){
+    for(var i=0;i<allGyms.length;i++){
+      if(allGyms[i].id===id){
+        allGyms[i].favorite=1;
+      }
+    }
+    var niz = allGyms.filter((gym)=>gym.favorite===1);
+    setFavoriteGyms(niz);
+  }
 
   return (
    <div>
     <BrowserRouter>
-        <NavBar></NavBar>
+        <NavBar pretrazi={pretrazi}></NavBar>
         <Routes>
             <Route path="/" element={<Home></Home>}></Route>
-            <Route path="/gyms" element={<Gyms  gyms={allGyms}></Gyms>}></Route>
+
+            <Route path="/gyms" element={<Gyms  kriterijum={krterijumPretrage} 
+              gyms={allGyms} dodaj={dodaj}></Gyms>}></Route>
+
+            <Route path="/favorites" element={<Favorites kriterijum={krterijumPretrage}  
+              gyms={favoriteGyms}></Favorites>}></Route>
+
           </Routes>
      </BrowserRouter>
 

@@ -1,4 +1,5 @@
-function Gym({gym}) {
+
+function Gym({gym, dodaj}) {
 
 
     return (
@@ -8,7 +9,7 @@ function Gym({gym}) {
           <h5 className="card-title">{gym.naziv}</h5>
           <p className="card-text">ADDRESS: {gym.adresa} <br /> MONTHLY PRICE: {gym.cena + "din"} <br /> 
             SIZE OF GYM: {gym.povrsina + "m2"}</p>
-          <a href="#" className="btnDodaj" style = {{margin: "15px", fontSize: "20px"}}>ADD TO FAVORITES</a>
+            <button className="btnDodaj" onClick={()=>dodaj(gym.id)}> ADD TO FAVORITES </button>
         </div>
       </div>
     );
