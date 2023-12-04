@@ -86,3 +86,22 @@ a:hover {
   padding-right: 4px;
   font-size: 25px;
 }
+
+ /* css za Footer */
+ .footer-container {
+  background-color: #374138;
+  display: flex;
+  opacity: 80%;
+  justify-content: space-evenly;
+  height: 60px;
+
+}
+
+.footer-text {
+  text-align: center;
+  color: #fff;
+ padding-bottom: 10px;
+ padding-top: 10px;
+  margin: 8px;
+
+}
