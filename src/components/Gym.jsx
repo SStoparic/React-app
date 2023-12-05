@@ -1,36 +1,40 @@
 import React, { useState, useEffect } from 'react';
 
-function Gym({ gym, dodaj, izbaci, mod }) {
+import useCounter from '../customHooks/useCounter';
 
+function Gym({ gym, dodaj, izbaci, mod }) {
   const [isClicked, setIsClicked] = useState(false);
   const [message, setMessage] = useState('');
 
+  const [count, increaseCount] = useCounter(0); // uzimamo custom hook
+
   const handleClick = () => {
     setIsClicked(true);
+
     if (mod === 1) {
+      increaseCount(); // Povećaj broj klikova na dugme
       dodaj(gym.id); // Dodaj teretanu u favorite
-      setMessage('Added to favorites');
-      setTimeout(() => {
-        setIsClicked(false);
-        setMessage('');
-      }, 1500); // Ukloni poruku nakon 1.5 sekunde
+      setMessage(`Added to favorites. Clicks: ${count}`); //povecava broj klikova
     } else {
+      izbaci(gym.id); // Ukloni teretanu iz favorita
       setMessage('Removed from favorites');
-      setTimeout(() => {
-        izbaci(gym.id); // Ukloni teretanu iz favorita nakon što se prikaže poruka
-      }, 1500); // Ukloni teretanu iz favorita nakon 1.5 sekunde
     }
+
+    setTimeout(() => {
+      setIsClicked(false);
+      setMessage('');
+    }, 1500); // Ukloni poruku nakon 1.5 sekunde
   };
 
   useEffect(() => {
-    if (isClicked) {
+    if (isClicked && mod !== 1) {
       const timeout = setTimeout(() => {
         setIsClicked(false);
         setMessage('');
-      }, 1500); // Prikaz poruke 2 sekunde, a zatim se resetuje stanje
+      }, 1500); // Prikaz poruke 1.5 sekundi, a zatim se resetuje stanje
       return () => clearTimeout(timeout);
     }
-  }, [isClicked]);
+  }, [isClicked, mod, izbaci]);
 
   return (
     <div className="card">
