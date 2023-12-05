@@ -7,7 +7,7 @@ function useCounter(initialValue) {
     setCount(count + 1);
   };
 
-  return [count, increaseCount];
+  return [count, setCount, increaseCount];
 }
 
 export default useCounter;
